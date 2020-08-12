@@ -1,8 +1,10 @@
 package com.example.study.model.entity;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,10 +13,10 @@ import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @Data
-@Entity
-@AllArgsConstructor
 @NoArgsConstructor
-public class Item {
+@AllArgsConstructor
+@Entity
+public class OrderGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,19 +24,19 @@ public class Item {
 
     private String status;
 
-    private String brandName;
+    private String orderType;
 
-    private String title;
+    private String revAddress;
 
-    private String name;
+    private String revName;
 
-    private Integer price;
+    private String paymentType;
 
-    private String content;
+    private LocalDateTime arrivalDate;
 
-    private LocalDateTime registeredAt;
+    private Integer totalQuantity;
 
-    private LocalDateTime unregisteredAt;
+    private Integer totalPrice;
 
     private LocalDateTime createdAt;
 
