@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -26,6 +27,8 @@ public class OrderGroup {
 
     private String orderType;
 
+    private LocalDateTime orderAt;
+
     private String revAddress;
 
     private String revName;
@@ -36,7 +39,7 @@ public class OrderGroup {
 
     private Integer totalQuantity;
 
-    private Integer totalPrice;
+    private BigDecimal totalPrice;
 
     private LocalDateTime createdAt;
 

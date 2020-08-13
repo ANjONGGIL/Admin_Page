@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -25,7 +26,7 @@ public class OrderDetail {
 
     private Integer quantity;
 
-    private Integer totalPrice;
+    private BigDecimal totalPrice;
 
     private LocalDateTime createdAt;
 
@@ -34,4 +35,8 @@ public class OrderDetail {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
+
+    private Long itemId;
+
+    private Long orderGroupId;
 }
