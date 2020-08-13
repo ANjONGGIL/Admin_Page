@@ -44,9 +44,20 @@ class UserRepositoryTest extends StudyApplicationTests {
         assertNotNull(newUser);
     }
     @Test
+    @Transactional
     void read(){
 
         User user = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1111-2222");
+
+        if(user != null){
+            user.getOrderGroupList().stream().forEach(orderGroup -> {
+                System.out.println("수령인  :" + orderGroup.getRevName());
+
+                orderGroup.getOrderDetailList().forEach(orderDetail -> {
+                    System.out.println(orderDetail.getStatus());
+                });
+            });
+        }
 
         assertNotNull(user);
 
