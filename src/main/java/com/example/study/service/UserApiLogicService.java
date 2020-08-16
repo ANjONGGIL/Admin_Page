@@ -53,7 +53,7 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
 
         Optional<User> optional = userRepository.findById(userApiRequest.getId());
 
-        optional.map(user -> {
+        return optional.map(user -> {
             user.setAccount(user.getAccount())
                     .setPassword(user.getPassword())
                     .setPhoneNumber(user.getPhoneNumber())
@@ -65,7 +65,6 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
         }).map(user -> userRepository.save(user))
                 .map(updateUser->response(updateUser))
                 .orElseGet(()->Header.ERROR("데이터 없음"));
-        return null;
     }
 
     @Override
@@ -73,11 +72,11 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
 
         Optional<User> optional = userRepository.findById(id);
 
-        optional.map(user -> {
+        return optional.map(user -> {
             userRepository.delete(user);
             return Header.OK();
         }).orElseGet(()->Header.ERROR("데이터 없음"));
-        return null;
+
     }
 
     private Header<UserApiResponse> response(User user){
