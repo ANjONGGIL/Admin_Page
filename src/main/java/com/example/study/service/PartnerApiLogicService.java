@@ -13,6 +13,7 @@ public class PartnerApiLogicService extends BaseService<PartnerApiRequest, Partn
 
     @Autowired
     PartnerRepository partnerRepository;
+
     @Override
     public Header<PartnerApiResponse> create(Header<PartnerApiRequest> request) {
         return null;
@@ -34,6 +35,7 @@ public class PartnerApiLogicService extends BaseService<PartnerApiRequest, Partn
     public Header delete(Long id) {
         return null;
     }
+
     private Header<PartnerApiResponse> response(Partner partner) {
         PartnerApiResponse body = PartnerApiResponse.builder()
                 .id(partner.getId())
